@@ -44,7 +44,7 @@ for BUILDPACK in $(cat $1/.buildpacks); do
     framework=$($dir/bin/detect $1)
 
     if [ $? == 0 ]; then
-      CACHE_DIR="$2/$(echo -n "${framework}" | sed -e 's/[^[:alnum:]]/-/g' \| tr -s '-' | tr A-Z a-z)"
+      CACHE_DIR="$2/$(echo -n "${framework}" | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z)"
       echo "=====> Detected Framework: $framework (cache in $CACHE_DIR)"
       $dir/bin/compile $1 $CACHE_DIR
 
